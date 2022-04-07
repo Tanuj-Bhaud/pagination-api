@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 const Home: NextPage = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
  
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -27,8 +27,8 @@ const Home: NextPage = () => {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
 
 
   return (
